@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { startDetecting } from "react-native/Libraries/Utilities/PixelRatio";
 
 const initialState = {
   origin: null,
@@ -21,3 +22,13 @@ export const navSlice = createSlice({
     },
   },
 });
+
+export const { setOrigin, setDestination, setTravelTimeInformation } =
+  navSlice.actions;
+
+export const selectOrigin = (state) => startDetecting.nav.origin;
+export const selectDestination = (state) => startDetecting.nav.destination;
+export const selectTravelTimeInformation = (state) =>
+  startDetecting.nav.travelTimeInformation;
+
+export default navSlice.reducer;
